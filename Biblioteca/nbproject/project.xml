@@ -5,6 +5,7 @@
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
             <name>Tarea_2</name>
             <source-roots>
+                <root id="src.Biblioteca%20Final.dir"/>
                 <root id="src.dir"/>
             </source-roots>
             <test-roots>

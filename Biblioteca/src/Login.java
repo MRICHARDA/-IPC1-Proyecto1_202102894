@@ -17,7 +17,11 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        this.setSize(1111, 700);
+        initComponents2();
+        this.setTitle("Biblioteca 2022"); 
+    }
+            private void initComponents2(){
+            setLocationRelativeTo(null);
     }
 
     /**
@@ -32,10 +36,11 @@ public class Login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         TContra = new javax.swing.JLabel();
         TUsu = new javax.swing.JLabel();
-        Usu = new javax.swing.JTextField();
-        Clave = new javax.swing.JPasswordField();
+        Admi = new javax.swing.JTextField();
+        AdminClave = new javax.swing.JPasswordField();
         Salir = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        EntrarUsu = new javax.swing.JButton();
+        RegresarAdmin1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,16 +54,16 @@ public class Login extends javax.swing.JFrame {
 
         TUsu.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         TUsu.setForeground(new java.awt.Color(0, 0, 0));
-        TUsu.setText("Usuario");
+        TUsu.setText("Administrador");
         jPanel1.add(TUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 170, 30));
 
-        Usu.addActionListener(new java.awt.event.ActionListener() {
+        Admi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsuActionPerformed(evt);
+                AdmiActionPerformed(evt);
             }
         });
-        jPanel1.add(Usu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 360, -1));
-        jPanel1.add(Clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, 360, -1));
+        jPanel1.add(Admi, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 360, -1));
+        jPanel1.add(AdminClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, 360, -1));
 
         Salir.setText("Salir");
         Salir.addActionListener(new java.awt.event.ActionListener() {
@@ -68,13 +73,26 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel1.add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 460, 90, 40));
 
-        jButton2.setText("Entrar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        EntrarUsu.setText("Entrar");
+        EntrarUsu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EntrarUsuMouseClicked(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, 90, 40));
+        EntrarUsu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EntrarUsuActionPerformed(evt);
+            }
+        });
+        jPanel1.add(EntrarUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, 90, 40));
+
+        RegresarAdmin1.setText("Regresar");
+        RegresarAdmin1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegresarAdmin1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(RegresarAdmin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 620, 270, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WhatsApp Image 2022-02-23 at 5.01.30 PM.jpeg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -93,28 +111,38 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void UsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuActionPerformed
+    private void AdmiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdmiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UsuActionPerformed
+    }//GEN-LAST:event_AdmiActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
         System.exit(0);
         
     }//GEN-LAST:event_SalirActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String usuario = "Richard";
-        String password = "202102894";
-        if (Usu.getText().equals(usuario)&&Clave.getText().equals(password)){
-            principal prin = new principal ();
+    private void EntrarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarUsuActionPerformed
+        String usuario = "admin";
+        String password = "admin";
+        if (Admi.getText().equals(usuario)&&AdminClave.getText().equals(password)){
+            Administrador prin = new Administrador ();
             prin.setVisible(true);
+            dispose();
         }
         else{
-            JOptionPane.showMessageDialog(this, "Usuario / Clave incorrecta");
-            
+            JOptionPane.showMessageDialog(this, "Usuario y Contraseña no coinciden por favor revise sus datos");  
         }     
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_EntrarUsuActionPerformed
+
+    private void EntrarUsuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EntrarUsuMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EntrarUsuMouseClicked
+
+    private void RegresarAdmin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarAdmin1ActionPerformed
+        LoginUsuariosAdmin prin = new LoginUsuariosAdmin ();
+        prin.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_RegresarAdmin1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,12 +180,13 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField Clave;
+    private javax.swing.JTextField Admi;
+    private javax.swing.JPasswordField AdminClave;
+    private javax.swing.JButton EntrarUsu;
+    private javax.swing.JButton RegresarAdmin1;
     private javax.swing.JButton Salir;
     private javax.swing.JLabel TContra;
     private javax.swing.JLabel TUsu;
-    private javax.swing.JTextField Usu;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
